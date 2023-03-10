@@ -93,7 +93,6 @@ function Checkout() {
 	};
 
 	const makePayment = async (values) => {
-		console.log('🚀 ~ makePayment ~ values:', values);
 		try {
 			const stripe = await stripePromise;
 			const requestBody = {
@@ -101,17 +100,17 @@ function Checkout() {
 				email: values.email,
 				products: cart.map(({ id, count }) => ({ id, count })),
 			};
-			console.log('🚀 ~ makePayment ~ requestBody:', requestBody);
+
 			const response = await fetch('http://localhost:1337/api/orders', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(requestBody),
 			});
 			const session = await response.json();
-			console.log('🚀 ~ makePayment ~ session:', session);
+
 			await stripe.redirectToCheckout({ sessionId: session.id });
 		} catch (err) {
-			console.log('🚀 ~ makePayment ~ err:', err);
+			console.log(err);
 		}
 	};
 
