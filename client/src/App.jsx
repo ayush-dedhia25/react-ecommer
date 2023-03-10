@@ -9,32 +9,32 @@ import Home from './scenes/home/Home';
 import ItemDetails from './scenes/itemDetails/ItemDetails';
 
 function ScrollToTop() {
-	const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, [pathname]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
-	return null;
+  return null;
 }
 
 function App() {
-	return (
-		<div className="app">
-			<BrowserRouter>
-				<Navbar />
-				<ScrollToTop />
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/item/:itemId" element={<ItemDetails />} />
-					<Route path="/checkout" element={<Checkout />} />
-					<Route path="/checkout/success" element={<Confirmation />} />
-				</Routes>
-				<CartMenu />
-				<Footer />
-			</BrowserRouter>
-		</div>
-	);
+  return (
+    <div className="app">
+      <BrowserRouter>
+        <Navbar />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/item/:itemId" element={<ItemDetails />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/success" element={<Confirmation />} />
+        </Routes>
+        <CartMenu />
+        <Footer />
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;

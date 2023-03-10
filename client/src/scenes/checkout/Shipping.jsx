@@ -2,56 +2,59 @@ import { Box, Checkbox, FormControlLabel, Typography } from '@mui/material';
 import AddressForm from './AddressForm';
 
 function Shipping({ values, errors, touched, handleBlur, handleChange, setFieldValue }) {
-	return (
-		<Box m="30px auto">
-			{/* Billing Form */}
-			<Box>
-				<Typography sx={{ mb: '15px' }} fontSize="18px">
-					Billing Information
-				</Typography>
-				<AddressForm
-					type="billingAddress"
-					values={values.billingAddress}
-					errors={errors}
-					touched={touched}
-					handleBlur={handleBlur}
-					handleChange={handleChange}
-				/>
-			</Box>
+  return (
+    <Box m="30px auto">
+      {/* Billing Form */}
+      <Box>
+        <Typography sx={{ mb: '15px' }} fontSize="18px">
+          Billing Information
+        </Typography>
+        <AddressForm
+          type="billingAddress"
+          values={values.billingAddress}
+          errors={errors}
+          touched={touched}
+          handleBlur={handleBlur}
+          handleChange={handleChange}
+        />
+      </Box>
 
-			<Box mb="20px">
-				<FormControlLabel
-					label="Same for Shipping Address"
-					control={
-						<Checkbox
-							value={values.shippingAddress.isSameAddress}
-							defaultChecked
-							onChange={() => {
-								setFieldValue('shippingAddress.isSameAddress', !values.shippingAddress.isSameAddress);
-							}}
-						/>
-					}
-				/>
-			</Box>
+      <Box mb="20px">
+        <FormControlLabel
+          label="Same for Shipping Address"
+          control={
+            <Checkbox
+              value={values.shippingAddress.isSameAddress}
+              defaultChecked
+              onChange={() => {
+                setFieldValue(
+                  'shippingAddress.isSameAddress',
+                  !values.shippingAddress.isSameAddress
+                );
+              }}
+            />
+          }
+        />
+      </Box>
 
-			{/* Shipping Form */}
-			{!values.shippingAddress.isSameAddress && (
-				<Box>
-					<Typography sx={{ mb: '15px' }} fontSize="18px">
-						Shipping Information
-					</Typography>
-					<AddressForm
-						type="shippingAddress"
-						values={values.shippingAddress}
-						errors={errors}
-						touched={touched}
-						handleBlur={handleBlur}
-						handleChange={handleChange}
-					/>
-				</Box>
-			)}
-		</Box>
-	);
+      {/* Shipping Form */}
+      {!values.shippingAddress.isSameAddress && (
+        <Box>
+          <Typography sx={{ mb: '15px' }} fontSize="18px">
+            Shipping Information
+          </Typography>
+          <AddressForm
+            type="shippingAddress"
+            values={values.shippingAddress}
+            errors={errors}
+            touched={touched}
+            handleBlur={handleBlur}
+            handleChange={handleChange}
+          />
+        </Box>
+      )}
+    </Box>
+  );
 }
 
 export default Shipping;
