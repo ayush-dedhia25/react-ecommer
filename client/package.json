@@ -23,9 +23,6 @@
     "react-redux": "^8.0.5",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.8.2",
-    "require-context": "^1.1.0",
-    "vite-plugin-import-context": "^1.0.0-rc.1",
-    "vite-plugin-require": "^1.1.10",
     "yup": "^1.0.2"
   },
   "devDependencies": {
